@@ -1,0 +1,56 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <hr>
+        <span><b>pixel_data_engine_maps</b></span><br><br>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <a class="btn btn-lg btn-success" href="geo/edit-geo/mapname=0&action=create"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add new geo map</a>
+            </div>
+        </nav>
+        <hr>
+
+        <form>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+                    <input type="text" class="form-control" placeholder="Search" ng-model="searchFrontendData">
+
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-striped table-bordered">
+            <thead>
+            <th>Map Name&nbsp;</th>
+            <th>Description&nbsp;</th>
+            <th>Version&nbsp;</th>
+            <th>Loading In Progress&nbsp;</th>
+            <th>Modification TS&nbsp;</th>
+            <th>Edit&nbsp;</th>
+            <th>Append&nbsp;</th>
+            <th>Override&nbsp;</th>
+            <th>Export&nbsp;</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="data in frontendData | filter:searchFrontendData">
+                <td>{{data.map_name}}</td>
+                <td>{{data.description}}</td>
+                <td>{{data.version}}</td>
+                <td>{{data.loading_in_progress}}</td>
+                <td>{{data.modification_ts}}</td>
+                <td><a href="geo/edit-geo/mapname={{data.map_name}}&action=edit" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Edit Map</a></td>
+                <td><a href="geo/edit-geo/mapname={{data.map_name}}&action=append" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Append</a></td>
+                <td><a href="geo/edit-geo/mapname={{data.map_name}}&action=override" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Override</a></td>
+                <td><a href="downloadTheMap?mapname={{data.map_name}}" target="_blank" class="btn">&nbsp;<i class="glyphicon glyphicon-edit"></i>&nbsp; Export</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-12" ng-show="frontendData.length == 0">
+        <div class="col-md-12">
+            <h4>No geo map found</h4>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+   <bean id="mErrorScanner" class="com.adara.pixeldataengineui.service.errorscannerservice.ErrorScanner" init-method="init" destroy-method="destroy">
+        <property name="refreshInterval" value="10" />
+    </bean>
+
+
+    <bean id="mPixelDataEngineService" class="com.adara.pixeldataengineui.service.pixeldataenginerules.PixelDataEngineService">
+        <property name="mPixelDataEngine" ref="pixelDataEngine"/>
+    </bean>
+
+    <bean id="AdobeDpkeyMappingDAO" class="com.adara.pixeldataengineui.dao.pixelmapping.AdobeDpkeyMappingDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="DataProviderFacebookPixelsDAO" class="com.adara.pixeldataengineui.dao.pixelmapping.DataProviderFacebookPixelsDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="DataProvidersDAO" class="com.adara.pixeldataengineui.dao.pixelmapping.DataProvidersDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="FacebookDpKeysDAO" class="com.adara.pixeldataengineui.dao.pixelmapping.FacebookDpKeysDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="LiverampDpkeyMappingsDAO" class="com.adara.pixeldataengineui.dao.pixelmapping.LiverampDpkeyMappingsDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="LiverampDpMappingsDAO" class="com.adara.pixeldataengineui.dao.pixelmapping.LiverampDpMappingsDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="UserManagementDAO" class="com.adara.pixeldataengineui.dao.usermanagement.UserManagementDAOImpl">
+        <property name="dataSource" ref="pdeDataSource"/>
+    </bean>
+
+    <bean id="KruxDpkeyDAO" class="com.adara.pixeldataengineui.dao.pixelmapping.KruxDpkeyDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+    <bean id="DeriveComboPixelDao" class="com.adara.pixeldataengineui.dao.pixelmapping.DeriveComboPixelDaoImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="DbmConversionPixelMappingsDAO" class="com.adara.pixeldataengineui.dao.pixelmapping.DbmConversionPixelMappingsDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="PixelDataEngineRuleDAO" class="com.adara.pixeldataengineui.dao.pixeldataenginerules.PixelDataEngineRuleDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="PixelDataEngineGroupDAO" class="com.adara.pixeldataengineui.dao.pixeldataenginerules.PixelDataEngineGroupDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+    <bean id="LocationDAO" class="com.adara.pixeldataengineui.dao.geofilemanager.GeoFileManagerDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="ReferUrlKeyMappingsDAO" class="com.adara.pixeldataengineui.dao.pixelmapping.ReferUrlKeyMappingsDAOImpl">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+</beans>

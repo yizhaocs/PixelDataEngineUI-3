@@ -1,0 +1,62 @@
+<style type="text/css">
+    .form-horizontal input.ng-invalid.ng-dirty {
+        border-color: #FA787E;
+    }
+
+    .form-horizontal input.ng-valid.ng-dirty {
+        border-color: #78FA89;
+    }
+</style>
+<div class="view">
+    <div class="container">
+        <div class="row">
+            <header>
+                <h3>{{title}}</h3>
+            </header>
+            <div class="col-md-12">
+
+                <form role="form" name="myForm" class="form-horizontal">
+                    <div class="row">
+                        <div class="form-group" ng-class="{error: myForm.name.$invalid}">
+                            <label class="col-md-2"> dp_id </label>
+                            <div class="col-md-4">
+                                <input name="dp_id" ng-model="frontendData.dp_id" type="text" ng-disabled="keyIdDisable" class="form-control" placeholder="dp_id" required/>
+                                <span ng-show="myForm.dp_id.$dirty && myForm.dp_id.$invalid" class="help-inline">DP Id Required</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2"> refer_url_key_id </label>
+                            <div class="col-md-4">
+                                <input name="refer_url_key_id" ng-model="frontendData.refer_url_key_id" type="text" class="form-control" placeholder="refer_url_key_id" required/>
+                                <span ng-show="myForm.refer_url_key_id.$dirty && myForm.refer_url_key_id.$invalid" class="help-inline">DP Key Id Required</span>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{error: myForm.name.$invalid}">
+                            <label class="col-md-2"> enable </label>
+                            <div class="col-md-2">
+                                <select class="form-control" ng-model="frontendData.enabled">
+                                    <option disabled selected value> -- select an option --</option>
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2"></label>
+                            <div class="col-md-4">
+                                <a href="refer-url-key-mappings" class="btn">Cancel</a>
+                                <button ng-click="saveMapping(frontendData);"
+                                        ng-disabled="isClean() || myForm.$invalid"
+                                        class="btn btn-primary">{{buttonText}}
+                                </button>
+                                <button ng-click="deleteMapping(frontendData)"
+                                        ng-show="isUpdate" class="btn btn-warning">Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
